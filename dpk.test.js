@@ -1,8 +1,14 @@
 const { deterministicPartitionKey } = require("./dpk");
+const { extractPartitionKeyFromEvent } = require('./partitionKey');
+
+jest.mock('./partitionKey');
 
 describe("deterministicPartitionKey", () => {
-  it("Returns the literal '0' when given no input", () => {
-    const trivialKey = deterministicPartitionKey();
-    expect(trivialKey).toBe("0");
+  it("Ensures partition key is extracted", () => {
+    // given, when
+    deterministicPartitionKey();
+
+    // then
+    expect(extractPartitionKeyFromEvent).toBeCalled();
   });
 });

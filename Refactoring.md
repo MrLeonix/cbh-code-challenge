@@ -9,3 +9,7 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+I made the decision to extract the logic for setting the partition key to a new file, so there is a separation of concerns in the actual implementation. Since this code is still using JS, I have added JSDocs in an attempt to give more clarification on what is expected from variables and return types.
+
+I have also extracted the cryptography logic, so it is isolated and, in the future, if it is decided to change how it should be implemented, it is easier to maintain/refactor this bit as well.
